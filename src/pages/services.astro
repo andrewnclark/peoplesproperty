@@ -1,0 +1,108 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/PageHeader.astro";
+
+const services = [
+    {
+        title: "Valuation",
+        description:
+            "Rely on accurate, market-led valuations. We provide RICS Red Book compliant valuations for secured lending, financial reporting, and acquisition purposes, ensuring you understand the true value of your assets.",
+    },
+    {
+        title: "Refinancing Advice",
+        description:
+            "Navigate the complex lending market with confidence. We structure optimal debt strategies and present your portfolio to lenders to secure the best possible refinancing terms.",
+    },
+    {
+        title: "Workout Solutions",
+        description:
+            "Turn around distressed assets. We analyze underperforming properties and implement strategic 'workout' plans to recover value, resolve insolvency issues, and stabilize income streams.",
+    },
+    {
+        title: "Asset Market Design",
+        description:
+            "Future-proof your developments. We consult on scheme design and layout before construction begins, ensuring the final product meets current market demands and maximizes lettable space.",
+    },
+    {
+        title: "Leasing",
+        description:
+            "Minimize void periods. Our proactive leasing team identifies target tenants, manages negotiations, and secures lease terms that enhance the long-term capital value of your property.",
+    },
+    {
+        title: "Asset Management & Enhancement",
+        description:
+            "Go beyond simple maintenance. We actively manage the asset lifecycle, identifying opportunities for refurbishment, change of use, or lease re-gearing to drive capital growth.",
+    },
+    {
+        title: "Financial Analysis & Appraisal",
+        description:
+            "Make data-backed decisions. We provide detailed cash flow modeling, investment appraisals, and sensitivity analysis to test the viability of acquisitions or development projects.",
+    },
+    {
+        title: "Property Management",
+        description:
+            "Comprehensive day-to-day administration. From rent collection and service charge management to tenant liaison, we ensure your building operates smoothly and remains compliant.",
+    },
+    {
+        title: "Rating Appeals",
+        description:
+            "Reduce your overheads. We audit business rates assessments and manage appeals with the Valuation Office Agency to ensure you aren't paying more tax than necessary.",
+    },
+    {
+        title: "Economic & Development Consultancy",
+        description:
+            "Feasibility studies for mixed-use schemes. We assess economic conditions and local planning frameworks to advise on the most profitable development mix.",
+    },
+    {
+        title: "Building Fabric Maintenance",
+        description:
+            "Protect the core of your investment. We implement planned preventative maintenance (PPM) schedules to preserve the structural integrity of your buildings and avoid costly emergency repairs.",
+    },
+    {
+        title: "Mechanical & Electrical Maintenance",
+        description:
+            "Ensure operational efficiency. Management of lifts, HVAC, and power systems through approved contractors, ensuring statutory compliance and tenant comfort.",
+    },
+    {
+        title: "Fire & Life Safety Systems",
+        description:
+            "Zero compromise on safety. We oversee the installation and testing of fire alarms, sprinklers, and emergency lighting, keeping you fully compliant with the latest building safety regulations.",
+    },
+    {
+        title: "Leasehold Enfranchisement",
+        description:
+            "Expert guidance on lease extensions and freehold purchases. We advise both freeholders and leaseholders on statutory rights, valuation, and the negotiation process.",
+    },
+    {
+        title: "On-site Concierge Facilities",
+        description:
+            "Elevate the tenant experience. We recruit, train, and manage on-site staff to provide front-of-house services that add a premium feel to residential and commercial blocks.",
+    },
+];
+---
+
+<Layout title="Our Professional Services - Peoples Property Management">
+    <PageHeader
+        title="Our Professional Services"
+        subtitle="Delivering value through proactive management and strategic advice. Explore our full range of property solutions below."
+    />
+
+    <section class="bg-white">
+        <div class="max-w-7xl mx-auto px-4 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {
+                    services.map((service) => (
+                        <div class="bg-white p-6 rounded-sm shadow-sm border-l-4 border-brand-primary hover:shadow-md hover:-translate-y-1 transition-all">
+                            <h2 class="text-lg font-bold text-slate-900 mb-2">
+                                {service.title}
+                            </h2>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                {service.description}
+                            </p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+</Layout>

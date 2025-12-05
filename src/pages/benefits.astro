@@ -1,0 +1,69 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/PageHeader.astro";
+
+const benefits = [
+    {
+        title: "Proven & Consistent Approach",
+        description:
+            "We utilize a track record of consistent processes to analyze, determine, and execute the optimal solution.",
+    },
+    {
+        title: "Real-Time Market Data",
+        description:
+            "Immediate access to proprietary market trend statistics, ensuring strategy is based on reality.",
+    },
+    {
+        title: "Unparalleled Experience",
+        description:
+            "Our team has navigated multiple economic cycles, protecting your downside while capturing upside.",
+    },
+    {
+        title: "Integrated Lifecycle Service",
+        description:
+            "Expertise in every stage of the property life cycle delivered through a single point of contact.",
+    },
+    {
+        title: "Speed to Market",
+        description:
+            "Rapid execution of instructions to minimize asset deterioration and maximize the going concern.",
+    },
+    {
+        title: "National Coverage",
+        description:
+            "Full UK coverage in valuation and property management, providing a unified service standard.",
+    },
+    {
+        title: "Financial & Regulatory Compliance",
+        description:
+            "Peace of mind regarding client money. Our management team strictly adheres to all financial and client account regulations, ensuring total transparency and statutory compliance.",
+    },
+];
+---
+
+<Layout title="The Client Advantage - Peoples Property Management">
+    <PageHeader
+        title="The Client Advantage"
+        subtitle="Why leading institutions trust Peoples Property."
+    />
+
+    <div class="container mx-auto px-6 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {
+                benefits.map((benefit, index) => (
+                    <div class="relative bg-white p-6 rounded-sm shadow-sm border-l-4 border-brand-primary hover:shadow-md hover:-translate-y-1 transition-all">
+                        <div class="absolute top-4 right-4 bg-brand-primary text-white rounded-full w-8 h-8 flex items-center justify-center text-xs font-bold">
+                            {String(index + 1).padStart(2, "0")}
+                        </div>
+                        <h2 class="text-lg font-bold text-slate-900 mb-2">
+                            {benefit.title}
+                        </h2>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            {benefit.description}
+                        </p>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</Layout>

@@ -1,0 +1,61 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/PageHeader.astro";
+
+const strategicPillars = [
+    {
+        title: "Market Demand Analysis",
+        description:
+            "Reassessing current and future market demand to ensure your assets meet evolving client requirements.",
+    },
+    {
+        title: "Scheme Optimization",
+        description:
+            "Redesigning schemes to reflect current market conditions, maximizing lettable area and yield.",
+    },
+    {
+        title: "Property Performance Audits",
+        description:
+            "Comprehensive audit of existing property advice and management strategies to identify cost leakages.",
+    },
+    {
+        title: "Risk & Sensitivity Analysis",
+        description:
+            "Financial modeling to stress-test your portfolio against interest rates, void periods, and cap rate shifts.",
+    },
+    {
+        title: "Vacant Asset Management",
+        description:
+            "Strategies to protect empty buildings, lower insurance risks, and bring vacant stock back into profitable use.",
+    },
+    {
+        title: "Acquisition Support",
+        description:
+            "Streamlining the acquisition process with conveyancing advice and introductions to third-party advisors.",
+    },
+];
+---
+
+<Layout title="Strategic Areas of Focus - Peoples Property Management">
+    <PageHeader
+        title="Strategic Areas of Focus"
+        subtitle="Aligning property assets with market realities to maximize performance."
+    />
+
+    <div class="max-w-6xl mx-auto px-4 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {
+                strategicPillars.map((pillar) => (
+                    <div class="bg-white p-6 rounded-sm shadow-sm border-l-4 border-brand-primary hover:shadow-md hover:-translate-y-1 transition-all">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">
+                            {pillar.title}
+                        </h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            {pillar.description}
+                        </p>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</Layout>

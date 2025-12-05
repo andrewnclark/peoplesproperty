@@ -1,0 +1,182 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<Layout title="Contact Us - Peoples Property Management">
+    <PageHeader
+        title="Get in Touch"
+        subtitle="Our team is available 24/7 to assist with your property requirements."
+    />
+
+    <div
+        class="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-2 gap-16"
+    >
+        <!-- Left Column (Contact Info) -->
+        <div>
+            <p class="text-slate-600 mb-8">
+                Whether you are a freeholder, RMC director, or developer, we are
+                ready to discuss your management needs.
+            </p>
+
+            <div class="space-y-8">
+                <!-- Chester Office -->
+                <div>
+                    <h3
+                        class="text-xl font-bold text-slate-900 mb-2 flex items-center"
+                    >
+                        <Icon
+                            name="heroicons:map-pin"
+                            class="w-6 h-6 text-brand-primary mr-2"
+                        /> Chester Office
+                    </h3>
+                    <p class="text-slate-600">Suite 1, 50 Watergate Street,</p>
+                    <p class="text-slate-600">Chester, CH1 2LA</p>
+                </div>
+
+                <!-- London Central -->
+                <div>
+                    <h3
+                        class="text-xl font-bold text-slate-900 mb-2 flex items-center"
+                    >
+                        <Icon
+                            name="heroicons:map-pin"
+                            class="w-6 h-6 text-brand-primary mr-2"
+                        /> London Central
+                    </h3>
+                    <p class="text-slate-600">Crusader House, 14 Pall Mall,</p>
+                    <p class="text-slate-600">London, SW1Y 5LU</p>
+                </div>
+
+                <!-- Direct Contact -->
+                <div class="space-y-2">
+                    <p class="text-slate-600 flex items-center">
+                        <Icon
+                            name="heroicons:envelope"
+                            class="w-6 h-6 text-brand-primary mr-2"
+                        />
+                        <a
+                            href="mailto:info@peoplesblockmanagement.com"
+                            class="hover:text-brand-primary"
+                            >info@peoplesblockmanagement.com</a
+                        >
+                    </p>
+                    <p class="text-slate-600 flex items-center">
+                        <Icon
+                            name="heroicons:phone"
+                            class="w-6 h-6 text-brand-primary mr-2"
+                        />
+                        <a
+                            href="tel:08000370867"
+                            class="hover:text-brand-primary">0800 037 0867</a
+                        >
+                    </p>
+                </div>
+            </div>
+
+            <!-- Emergency Block -->
+            <div class="bg-red-50 p-6 rounded border border-red-100 mt-8">
+                <h3 class="text-brand-primary font-bold mb-2">
+                    Out of Hours Emergency?
+                </h3>
+                <p class="text-slate-600">
+                    We are available 24/7 for emergencies requiring immediate
+                    attention.
+                </p>
+                <p class="text-3xl font-bold text-slate-900 mt-4">
+                    0800 037 0867
+                </p>
+            </div>
+        </div>
+
+        <!-- Right Column (The Form) -->
+        <div
+            class="bg-white p-8 shadow-lg rounded-sm border-t-4 border-brand-primary"
+        >
+            <h2 class="text-2xl font-bold text-slate-900 mb-6">
+                Send us a Message
+            </h2>
+            <form class="space-y-4">
+                <div>
+                    <label
+                        for="name"
+                        class="block text-slate-700 text-sm font-bold mb-2"
+                        >Name</label
+                    >
+                    <input
+                        type="text"
+                        id="name"
+                        class="w-full border-slate-300 rounded focus:border-brand-primary focus:ring-brand-primary"
+                        placeholder="Your Name"
+                    />
+                </div>
+                <div>
+                    <label
+                        for="email"
+                        class="block text-slate-700 text-sm font-bold mb-2"
+                        >Email</label
+                    >
+                    <input
+                        type="email"
+                        id="email"
+                        class="w-full border-slate-300 rounded focus:border-brand-primary focus:ring-brand-primary"
+                        placeholder="your@example.com"
+                    />
+                </div>
+                <div>
+                    <label
+                        for="phone"
+                        class="block text-slate-700 text-sm font-bold mb-2"
+                        >Phone Number</label
+                    >
+                    <input
+                        type="tel"
+                        id="phone"
+                        class="w-full border-slate-300 rounded focus:border-brand-primary focus:ring-brand-primary"
+                        placeholder="Your Phone Number"
+                    />
+                </div>
+                <div>
+                    <label
+                        for="subject"
+                        class="block text-slate-700 text-sm font-bold mb-2"
+                        >Subject</label
+                    >
+                    <input
+                        type="text"
+                        id="subject"
+                        class="w-full border-slate-300 rounded focus:border-brand-primary focus:ring-brand-primary"
+                        placeholder="Subject of your inquiry"
+                    />
+                </div>
+                <div>
+                    <label
+                        for="message"
+                        class="block text-slate-700 text-sm font-bold mb-2"
+                        >Message</label
+                    >
+                    <textarea
+                        id="message"
+                        rows="4"
+                        class="w-full border-slate-300 rounded focus:border-brand-primary focus:ring-brand-primary"
+                        placeholder="Your Message"></textarea>
+                </div>
+                <button
+                    type="submit"
+                    class="w-full bg-brand-primary text-white font-bold py-3 rounded hover:bg-brand-dark transition duration-300"
+                    >Send Message</button
+                >
+            </form>
+        </div>
+    </div>
+
+    <!-- Bottom Section (Map Placeholder) -->
+    <div
+        class="w-full h-96 bg-slate-200 grayscale flex items-center justify-center"
+    >
+        <p class="text-slate-600 text-xl font-semibold">
+            Interactive Map Loading...
+        </p>
+    </div>
+</Layout>

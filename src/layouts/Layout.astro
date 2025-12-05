@@ -1,0 +1,42 @@
+---
+import "../styles/global.css";
+import "@fontsource/inter"; // Defaults to weight 400 with all styles included.
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+    title: string;
+    description?: string;
+}
+
+const {
+    title,
+    description = "Peoples Property Management provides expert block management services across the UK.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+    </head>
+    <body class="bg-white text-slate-600 font-sans flex flex-col min-h-screen">
+        <!-- Top Bar -->
+        <div class="bg-brand-primary text-white text-xs py-1 px-6">
+            <div class="container mx-auto flex justify-between items-center">
+                <span class="opacity-90">24/7 Emergency Support available</span>
+                <span class="font-bold">Call Us: 0800 037 0867</span>
+            </div>
+        </div>
+        <Header />
+        <main class="flex-grow">
+            <slot />
+        </main>
+        <Footer />
+    </body>
+</html>
