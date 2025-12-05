@@ -1,5 +1,5 @@
 ---
-
+import { Icon } from "astro-icon/components";
 ---
 
 <header class="sticky top-0 z-50 bg-white shadow-md border-b border-red-100">
@@ -41,13 +41,56 @@
             >
         </div>
 
-        <!-- Mobile Navigation (simple Contact button for now) -->
-        <div class="md:hidden">
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center">
+            <button
+                id="mobile-menu-button"
+                class="text-slate-600 focus:outline-none"
+            >
+                <Icon name="heroicons:bars-3" class="w-8 h-8" />
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white py-4 shadow-lg">
+        <div class="flex flex-col items-center space-y-4">
+            <a
+                href="/"
+                class="text-slate-600 text-base font-semibold hover:text-brand-primary"
+                >Home</a
+            >
+            <a
+                href="/areas-of-focus"
+                class="text-slate-600 text-base font-semibold hover:text-brand-primary"
+                >Areas of Focus</a
+            >
+            <a
+                href="/benefits"
+                class="text-slate-600 text-base font-semibold hover:text-brand-primary"
+                >The Benefits</a
+            >
+            <a
+                href="/services"
+                class="text-slate-600 text-base font-semibold hover:text-brand-primary"
+                >Our Services</a
+            >
             <a
                 href="/contact"
-                class="bg-brand-primary text-white text-sm font-semibold py-2 px-4 rounded-full hover:bg-brand-dark transition duration-300"
+                class="bg-brand-primary text-white text-base font-semibold py-2 px-6 rounded-full hover:bg-brand-dark transition duration-300"
                 >Contact</a
             >
         </div>
-    </nav>
+    </div>
 </header>
+
+<script is:inline>
+    const button = document.getElementById("mobile-menu-button");
+    const menu = document.getElementById("mobile-menu");
+
+    if (button && menu) {
+        button.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+    }
+</script>
