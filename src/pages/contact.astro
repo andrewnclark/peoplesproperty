@@ -97,7 +97,12 @@ import { Icon } from "astro-icon/components";
             <h2 class="text-2xl font-bold text-slate-900 mb-6">
                 Send us a Message
             </h2>
-            <form class="space-y-4">
+            <form
+                class="space-y-4"
+                id="contactForm"
+                action="/api/contact"
+                method="POST"
+            >
                 <div>
                     <label
                         for="name"
@@ -107,8 +112,10 @@ import { Icon } from "astro-icon/components";
                     <input
                         type="text"
                         id="name"
+                        name="name"
                         class="w-full border-slate-300 rounded focus:border-brand-primary focus:ring-brand-primary"
                         placeholder="Your Name"
+                        required
                     />
                 </div>
                 <div>
@@ -120,8 +127,10 @@ import { Icon } from "astro-icon/components";
                     <input
                         type="email"
                         id="email"
+                        name="email"
                         class="w-full border-slate-300 rounded focus:border-brand-primary focus:ring-brand-primary"
                         placeholder="your@example.com"
+                        required
                     />
                 </div>
                 <div>
@@ -133,6 +142,7 @@ import { Icon } from "astro-icon/components";
                     <input
                         type="tel"
                         id="phone"
+                        name="phone"
                         class="w-full border-slate-300 rounded focus:border-brand-primary focus:ring-brand-primary"
                         placeholder="Your Phone Number"
                     />
@@ -146,6 +156,7 @@ import { Icon } from "astro-icon/components";
                     <input
                         type="text"
                         id="subject"
+                        name="subject"
                         class="w-full border-slate-300 rounded focus:border-brand-primary focus:ring-brand-primary"
                         placeholder="Subject of your inquiry"
                     />
@@ -158,15 +169,19 @@ import { Icon } from "astro-icon/components";
                     >
                     <textarea
                         id="message"
+                        name="message"
                         rows="4"
                         class="w-full border-slate-300 rounded focus:border-brand-primary focus:ring-brand-primary"
-                        placeholder="Your Message"></textarea>
+                        placeholder="Your Message"
+                        required></textarea>
                 </div>
                 <button
                     type="submit"
                     class="w-full bg-brand-primary text-white font-bold py-3 rounded hover:bg-brand-dark transition duration-300"
                     >Send Message</button
                 >
+                <div id="formMessage" class="mt-4 text-center font-semibold">
+                </div>
             </form>
         </div>
     </div>
@@ -180,3 +195,34 @@ import { Icon } from "astro-icon/components";
         </p>
     </div>
 </Layout>
+
+<script is:inline>
+    const contactForm = document.getElementById("contactForm");
+    const formMessage = document.getElementById("formMessage");
+
+    if (contactForm && formMessage) {
+        contactForm.addEventListener("submit", async (event) => {
+            event.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData(contactForm);
+            const response = await fetch(contactForm.action, {
+                method: contactForm.method,
+                body: formData,
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                formMessage.textContent = result.message;
+                formMessage.className =
+                    "mt-4 text-center font-semibold text-green-600";
+                contactForm.reset(); // Clear the form
+            } else {
+                formMessage.textContent =
+                    result.message || "An unexpected error occurred.";
+                formMessage.className =
+                    "mt-4 text-center font-semibold text-red-600";
+            }
+        });
+    }
+</script>
